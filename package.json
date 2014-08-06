@@ -1,6 +1,6 @@
 {
   "name": "language-javascript-subtlegradient",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "JavaScript Bundle for Atom",
   "repository": "https://github.com/subtlegradient/language-javascript",
   "license": "MIT",
