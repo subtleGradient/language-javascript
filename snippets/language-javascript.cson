@@ -1,0 +1,117 @@
+'.source.js':
+  'Array.prototype.slice.call(arguments) → arguments':
+    'prefix': 'arguments'
+    'body': 'Array.prototype.slice.call(arguments)'
+  'arguments → Array.prototype.slice.call(arguments)':
+    'prefix': 'Array.prototype.slice.call(arguments)'
+    'body': 'arguments'
+  'Class Closure MyClass = (fn(){…})()':
+    'prefix': 'cla'
+    'body': '${1/^(\\w+)$|.+/(?1:var )/}${1:MyClass} = (function(${2:}){\n\tfunction ${1/(?:.*\\.)?(\\w*)/$1/}(){$0};\n\t${1/(?:.*\\.)?(\\w*)/$1/}.prototype = {};\n\treturn ${1/(?:.*\\.)?(\\w*)/$1/};\n})(${2/(.+)/(?1:{})/});'
+  'get Elements':
+    'prefix': '.get'
+    'body': '.getElement${1/(T)|.*/(?1:s)/}By${1:I}${1/(I)|(T)|.*/(?2:agName)(?1:d)/}($2)$0'
+  'Google AJAX Libs: MooTools 1.2.1':
+    'prefix': 'moo'
+    'body': 'http://ajax.googleapis.com/ajax/libs/mootools/1.2.3/mootools.js'
+  'Internet Explorer Conditional Comment':
+    'prefix': '@'
+    'body': '/*@cc_on ${0:$TM_SELECTED_TEXT} @*/'
+  'Object Method':
+    'prefix': ':f'
+    'body': '${1:}: function(${3:}){$0}'
+  '.prototype.method = f':
+    'prefix': '.pf'
+    'body': '.prototype.${2:methodName} = f$0'
+  'arguments':
+    'prefix': 'a'
+    'body': 'arguments'
+  'case':
+    'prefix': '\tbreak;'
+    'body': '\tbreak;\ncase ${20:/*Expression*/}:\n\t${0:}\n\tbreak;'
+  'console.assert':
+    'prefix': 'ass'
+    'body': 'console.assert(${0:false})'
+  'console.log':
+    'prefix': 'l'
+    'body': 'console.log($0)'
+  'createNode…appendChild idiom':
+    'prefix': 'el='
+    'body': 'var ${1:element} = document.createElement(\'${10:div}\');\n$0${100:$1.innerHTML = ${290:\'${300:lorem}\'};\n}${110:$1.appendChild(document.createTextNode(${355:${290:\'${350:$300}\'}}));\n}${200:document.body}.appendChild($1);'
+  'document':
+    'prefix': 'd'
+    'body': 'document'
+  'for (in) {…}':
+    'prefix': 'forin'
+    'body': 'for (var ${1:property} in ${2:object}) {\n\t${0:$2[$1]}\n}'
+  'for (…) {…} (DOM)':
+    'prefix': 'for'
+    'body': 'for (var ${20:i}=-1, ${2:node}; ${2:node} = ${1:Nodes}[++${20:i}];) {\n\t${0:${2:node}}\n}'
+  'for (…) {…} (Fastest reverse)':
+    'prefix': 'for'
+    'body': 'for (var ${20:i} = ${1:${2:Things}.length}; --$20 >= 0;){\n\t${0:$2[$20]}\n}'
+  'for (…) {…} (Fastest)':
+    'prefix': 'for'
+    'body': 'for (var ${20:i} = -1, ${30:ln} = ${1:${2:Things}.length}; ++$20 < $30;) {\n\t${0:$2[$20]}\n}'
+  'for (…) {…} (PPK)':
+    'prefix': 'for'
+    'body': 'for (var ${20:i}=0, ${2:thing}; ${2:thing} = ${1:Things}[${20:i}]; ${20:i}++){\n\t$0${2:thing}\n}'
+  'for (…) {…} (Improved Native For-Loop)':
+    'prefix': 'for'
+    'body': 'for (var ${20:i} = ${1:${2:Things}.length} - 1; ${20:i} >= 0; ${20:i}--){\n\t${0:$2[$20]}\n}'
+  'for (…) {…}':
+    'prefix': 'for'
+    'body': 'for (${1:before_all}; ${2:test_before_each}; ${3:after_each}) {\n\t${0:// statement}\n}'
+  'for (…) {…} (Classic)':
+    'prefix': 'for'
+    'body': 'for (var ${20:i}=0; ${20:i} < ${1:${2:Things}.length}; ${20:i}++) {\n\t${0:$2[$20]}\n}'
+  'Function':
+    'prefix': 'f'
+    'body': 'function$1($2){$0}'
+  'if !null':
+    'prefix': 'ifn'
+    'body': 'if (${1:myVar} != null) $0'
+  'if !undefined':
+    'prefix': 'ifu'
+    'body': 'if (typeof ${1:myVar} != \'undefined\') $0'
+  'if (isArray)':
+    'prefix': 'ifa'
+    'body': 'if ($1Array.isArray(${2:array}))$0'
+  'if … else':
+    'prefix': 'ife'
+    'body': 'if (${1:true}) {\n${0:\t\n}} else {};'
+  'if instanceof':
+    'prefix': 'ifi'
+    'body': 'if ($1 instanceof ${2:Array})$0'
+  'if':
+    'prefix': 'if'
+    'body': 'if (${1:true}) {$1}'
+  'prototype':
+    'prefix': '.p'
+    'body': '.prototype'
+  'setTimeout':
+    'prefix': 'timeout'
+    'body': 'setTimeout($0, ${10:10});'
+  'switch … case':
+    'prefix': 'switch'
+    'body': 'switch(${10:/*Expression*/}){\ncase ${20:/*Expression*/}:\n\t${0:}\n\tbreak;\ndefault:\n\t\n}'
+  'this':
+    'prefix': 't'
+    'body': 'this'
+  'try … catch':
+    'prefix': 'try'
+    'body': 'try {\n${0:$TM_SELECTED_TEXT}} catch(e){}'
+  'window':
+    'prefix': 'w'
+    'body': 'window'
+  'window.addEventListener(\'load\')':
+    'prefix': 'load'
+    'body': 'window.addEventListener(\'load\',function(){\n\t\n\t$0\n\t\n},false);'
+'.source.js .comment.block.conditional':
+  'Internet Explorer Conditional Comment Escape':
+    'prefix': '@'
+    'body': '@*/${0:$TM_SELECTED_TEXT}/*@'
+'.text.html':
+  'JSSpec Standalone':
+    'prefix': 'jsspec'
+    'body': '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"\n\t"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">\n<html xmlns="http://www.w3.org/1999/xhtml">\n<head>\n\t<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />\n\n\t<title>JSSpec results</title>\n\t<style type="text/css">\n/*<![CDATA[*/\n`cat "$TM_BUNDLE_SUPPORT/JSSpec/JSSpec.css"`\n/*]]>*/\n\t</style>\n\t<script type="text/javascript">\n/*<![CDATA[*/\n`cat "$TM_BUNDLE_SUPPORT/JSSpec/diff_match_patch.js"`\n/*]]>*/\n\t</script>\n\t<script type="text/javascript">\n/*<![CDATA[*/\n`cat "$TM_BUNDLE_SUPPORT/JSSpec/JSSpec.js"`\n/*]]>*/\n\t</script>\n</head>\n<body>\n<script src="${1:something}.js" type="text/javascript" charset="utf-8"></script>\n<script type="text/javascript" charset="utf-8">\n\ndescribe(\'${2:$1}\', {\n\t\n\t\'should exist\': function(){\n\t\tvalue_of( ${3:$1} ).should_not_be_undefined();\n\t}\n\t,\n\t\'should work\': function(){\n\t\t$0\n\t}\n});\n\n</script>\n</body>\n</html>\n'
